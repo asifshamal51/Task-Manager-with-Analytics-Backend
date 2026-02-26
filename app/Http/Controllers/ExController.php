@@ -7,7 +7,10 @@ use Illuminate\Http\Request;
 class ExController extends Controller
 {
     public function homepage(){
-        return view('homepage');
+        $name = 'Asif';
+        $animals = ['cat', 'dog', 'mouse'];
+
+        return view('homepage',['allAnimals' =>$animals ,'name' => $name, 'number' => '51']);
     }
 
     public function aboutPage() {
