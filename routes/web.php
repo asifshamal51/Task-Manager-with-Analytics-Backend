@@ -22,3 +22,7 @@ Route::middleware([
         return Inertia::render('Dashboard');
     })->name('dashboard');
 });
+
+Route::get("/about", function(){
+    return '<h1>About Page</h1><a href="/">back to home</a>';
+});
