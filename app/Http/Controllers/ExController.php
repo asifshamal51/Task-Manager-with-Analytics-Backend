@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 class ExController extends Controller
 {
     public function homepage(){
-        return '<h1>Home Page</h1><a href="/about">go to about page</a>';
+        return view('homepage');
     }
 
     public function aboutPage() {
