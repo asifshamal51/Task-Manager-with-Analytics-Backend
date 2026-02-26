@@ -3,15 +3,9 @@
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\ExController;
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+Route::get('/', [ExController::class, 'homepage']);
 
 Route::middleware([
     'auth:sanctum',
@@ -23,6 +17,4 @@ Route::middleware([
     })->name('dashboard');
 });
 
-Route::get("/about", function(){
-    return '<h1>About Page</h1><a href="/">back to home</a>';
-});
+Route::get("/about", [ExController::class, 'aboutPage']);
