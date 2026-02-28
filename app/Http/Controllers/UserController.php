@@ -14,6 +14,9 @@ class UserController extends Controller
             'email' => ['required', 'email', Rule::unique('users', 'email')],
             'password' => ['required', 'min:8', 'confirmed']
         ]);
+
+        $incomingField['password']= bcrypt($incomingField['password']);
+
         User::create($incomingField);
         return 'hello from register method';
     }
