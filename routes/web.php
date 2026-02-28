@@ -4,6 +4,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\ExController;
+use App\Http\Controllers\UserController;
 
 Route::get('/', [ExController::class, 'homepage']);
 
@@ -18,3 +19,5 @@ Route::middleware([
 });
 
 Route::get("/about", [ExController::class, 'aboutPage']);
+
+Route::post('/register', [UserController::class, 'register']);
